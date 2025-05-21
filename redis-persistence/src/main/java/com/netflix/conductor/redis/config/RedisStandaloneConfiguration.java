@@ -58,7 +58,8 @@ public class RedisStandaloneConfiguration extends JedisCommandsConfigurer {
                     Protocol.DEFAULT_TIMEOUT,
                     properties.getUsername(),
                     host.getPassword(),
-                    properties.getDatabase());
+                    properties.getDatabase(),
+                    properties.isSslEnabled());
         } else if (host.getPassword() != null) {
             log.info("Connecting to Redis Standalone with AUTH");
             return new JedisPool(
@@ -67,7 +68,8 @@ public class RedisStandaloneConfiguration extends JedisCommandsConfigurer {
                     host.getPort(),
                     Protocol.DEFAULT_TIMEOUT,
                     host.getPassword(),
-                    properties.getDatabase());
+                    properties.getDatabase(),
+                    properties.isSslEnabled());
         } else {
             return new JedisPool(config, host.getHostName(), host.getPort());
         }

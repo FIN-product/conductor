@@ -65,7 +65,8 @@ public class RedisClusterConfiguration extends JedisCommandsConfigurer {
                             DEFAULT_MAX_ATTEMPTS,
                             properties.getUsername(),
                             password,
-                            genericObjectPoolConfig));
+                            genericObjectPoolConfig,
+                            properties.isSslEnabled()));
         } else if (password != null) {
             log.info("Connecting to Redis Cluster with AUTH");
             return new JedisCluster(

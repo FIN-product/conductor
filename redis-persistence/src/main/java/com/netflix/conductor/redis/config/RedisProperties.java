@@ -106,6 +106,8 @@ public class RedisProperties {
 
     private boolean testWhileIdle = false;
 
+    private boolean sslEnabled = false;
+
     private int numTestsPerEvictionRun = 3;
 
     private int database = 0;
@@ -126,6 +128,14 @@ public class RedisProperties {
 
     public void setTestWhileIdle(boolean testWhileIdle) {
         this.testWhileIdle = testWhileIdle;
+    }
+
+    public boolean isSslEnabled() {
+        return this.sslEnabled;
+    }
+
+    public void setSslEnabled(boolean sslEnabled) {
+        this.sslEnabled = sslEnabled;
     }
 
     public long getMinEvictableIdleTimeMillis() {
